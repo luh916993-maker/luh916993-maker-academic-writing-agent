@@ -39,7 +39,7 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm build
         env:
-          NEXT_PUBLIC_BASE_PATH: /academic-writing-agent
+          NEXT_PUBLIC_BASE_PATH: /luh916993-maker-academic-writing-agent
           NEXT_PUBLIC_API_BASE_URL: ${{ vars.PAPERLIGHT_API_BASE_URL || 'https://paperlight-backend.invalid' }}
       - run: pnpm check:secrets
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5

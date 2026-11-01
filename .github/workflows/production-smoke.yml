@@ -17,7 +17,7 @@ jobs:
       - name: Verify Pages and owner-only API
         env:
           BACKEND_URL: ${{ vars.PAPERLIGHT_API_BASE_URL }}
-          PAGES_URL: https://k8w98rr595-blip.github.io/academic-writing-agent
+          PAGES_URL: https://luh916993-maker.github.io/luh916993-maker-academic-writing-agent
           EXPECTED_DETECTOR_MODE: ${{ vars.PAPERLIGHT_EXPECTED_DETECTOR_MODE || 'pangram' }}
           EXPECTED_REWRITE_MODE: ${{ vars.PAPERLIGHT_EXPECTED_REWRITE_MODE || 'deepseek' }}
           EXPECTED_REQUIRES_TOTP: ${{ vars.PAPERLIGHT_EXPECTED_REQUIRES_TOTP || 'false' }}
@@ -57,12 +57,12 @@ jobs:
 
           cors_headers="$(mktemp)"
           curl "${retry[@]}" --fail --request OPTIONS \
-            --header "Origin: https://k8w98rr595-blip.github.io" \
+            --header "Origin: https://luh916993-maker.github.io" \
             --header 'Access-Control-Request-Method: POST' \
             --header 'Access-Control-Request-Headers: authorization,content-type' \
             --dump-header "$cors_headers" \
             --output /dev/null \
             "$BACKEND_URL/api/v1/auth/login"
-          grep -i '^access-control-allow-origin: https://k8w98rr595-blip.github.io' "$cors_headers" >/dev/null
+          grep -i '^access-control-allow-origin: https://luh916993-maker.github.io' "$cors_headers" >/dev/null
 
           echo "Production smoke passed: detector=$EXPECTED_DETECTOR_MODE rewrite=$EXPECTED_REWRITE_MODE billing=$EXPECTED_BILLING_MODE requiresTotp=$EXPECTED_REQUIRES_TOTP."
